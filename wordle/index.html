@@ -1,26 +1,72 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html class="light-mode" lang="en-US" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Wordle</title>
     <link rel="stylesheet" href="./style.css" />
-    <script src="wordle.js"></script>
+    <!-- <link rel="stylesheet" href="./c.css" media="(prefers-color-scheme: light)" /> -->
+
+    <script>
+    function toggleDarkMode() {
+  // Get the <body> element
+  var body = document.getElementsByTagName('html')[0];
+
+  // Toggle the .dark-mode class
+  body.classList.toggle('dark-mode');
+}
+function toggleHowToPlay() {
+        const howContainer = document.querySelector('#how-container');
+        howContainer.classList.toggle('visible');
+      }
+    </script>
   </head>
-  <body>
-    <h1>Wordle  </h1>
-    <div class = " menu"> <ul> <li>&#9681;</li>    <li> &#63;</li>     <li>&#9432;</li></ul> </div>
-    <div id="board"></div>
-
-    <br>
-    <h1 id="answer"></h1>
-
-    <footer>
-      <p>&#169;Rhishik Roy</p>
-    </footer>
-</body>
+  <body >
+    <div class="container">
+      <h1>Wordle</h1>
+      <div class="menu">
+        <ul class="bo">
+          <li>
+            <button id="switcher" onclick="toggleDarkMode()">
+              &#9681;
+            </button>
+          </li>
+          <li>
+            <button id='hint'>
+              &#63;
+            </button>
+            <div class="hint-text">This is a hint.</div>
+          </li>
+          <li>
+            <button id="how" onclick="toggleHowToPlay()">
+              &#9432;
+            </button>
+            
+          </li>
+        </ul>
+      </div>
+      <div id="board"></div>
+      <div id="answer-section">
+        <h2 id="answer"></h2>
+        <button id="new-game">Start Over</button>
+      </div>
+      <div id="hint-container"></div>
+      <div id="how-container">
+        <h2>How to Play</h2>
+        <ol>
+          <li>Choose a word of five letters.</li>
+          <li>Click "Guess" to see if the word is correct.</li>
+          <li>You have six chances to guess the word.</li>
+          <li>The letters in the correct position will be highlighted in green, while correct letters in the wrong position will be highlighted in yellow.</li>
+          <li>Use the feedback to guess the word.</li>
+          <li>Have fun!</li>
+        </ol>
+      </div>
+      
+      <footer>
+        <p>&#169;Rhishik Roy</p>
+      </footer>
+    </div>
+  </body>
+  <script src="wordle.js"></script>
 </html>
-<!--  <div class = "dark"> -->
-<!-- </div> <div class = "hint"> -->
-<!-- </div><div class = "instruction"> -->
-<!-- </div></div> -->
